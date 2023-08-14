@@ -1,0 +1,50 @@
+Global:
+  Debug: True
+
+# HTTP 配置
+HTTP:
+  Host: "0.0.0.0" # http监听地址
+  Port: 8080 # http监听端口
+  ReadTimeout: 60 # 读取超时，秒
+  WriteTimeout: 60
+  IdleTimeout: 60
+
+# MySQL 配置
+MySQL:
+  Host: "127.0.0.1"
+  Port: 3306
+  User: "admin"
+  Password: "123456"
+  DB: "transfer"
+
+# MinIO 配置
+MinIO:
+  Endpoint: "play.min.io:9000"
+  AccessKeyID: "minioadmin"
+  SecretAccessKey: "minioadmin"
+  UseSSL: True
+  # MinIO 文件过期时间设置，单位 小时
+  FileExpired:
+    # 1 天
+    - 24
+    # 7 天
+    - 168
+    # 15 天
+    - 360
+    # 30 天
+    - 720
+    # 永久
+    - 0
+
+  # 授权用户访问文件权限过期时间，单位 分钟
+  UserExpired: 60
+  # 生成下载 authParam 过期时间。单位 秒
+  AuthExpired: 1000
+
+Security:
+  SecureKey: ""
+
+Log:
+  # debug:-1, info:0, warn:1, error:2, dpanic:3, panic:4, fatal:5,
+  Level: -1
+  AccessLog: True
